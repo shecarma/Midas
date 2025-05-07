@@ -1,3 +1,4 @@
+/* Reset and Base Styles */  
 * {  
     margin: 0;  
     padding: 0;  
@@ -6,250 +7,94 @@
   
 body {  
     font-family: 'Montserrat', sans-serif;  
-    line-height: 1.6;  
-    color: #FFD700; /* Gold text */  
-    background: #000; /* Black background */  
+    background: #000;  
+    color: #FFD700;  
 }  
   
-/* Preloader styles */  
+/* Preloader Styles */  
 #preloader {  
     position: fixed;  
     top: 0;  
     left: 0;  
     width: 100%;  
     height: 100%;  
-    background-color: #000; /* Black overlay */  
+    background: #000;  
     z-index: 9999;  
     display: flex;  
     justify-content: center;  
     align-items: center;  
-    transition: opacity 0.5s;  
 }  
   
-.loader-container {  
+.preloader-content {  
     text-align: center;  
-}  
-  
-.spinner {  
-    width: 60px;  
-    height: 60px;  
-    border: 5px solid #FFD700; /* Gold border */  
-    border-top: 5px solid #000; /* Black top for contrast */  
-    border-radius: 50%;  
-    animation: spin 1s linear infinite;  
-    margin: 0 auto 20px;  
-}  
-  
-.percentage {  
-    color: #FFD700;  
-    font-size: 24px;  
-    margin-bottom: 10px;  
-}  
-  
-.progress-bar {  
-    width: 200px;  
-    height: 4px;  
-    background: #FFD700; /* Gold bar background */  
-    border-radius: 2px;  
-    overflow: hidden;  
-}  
-  
-.progress {  
-    width: 0%;  
-    height: 100%;  
-    background: #FFD700; /* Gold progress */  
-    transition: width 0.2s ease-out;  
-}  
-  
-@keyframes spin {  
-    0% { transform: rotate(0deg); }  
-    100% { transform: rotate(360deg); }  
-}  
-  
-/* Main website styles */  
-header {  
-    background: #000; /* Black header */  
-    padding: 1rem;  
-    display: flex;  
-    justify-content: space-between;  
-    align-items: center;  
-    position: fixed;  
-    width: 100%;  
-    top: 0;  
-    z-index: 100;  
-}  
-  
-.logo {  
-    height: 60px;  
-}  
-  
-nav a {  
-    color: #FFD700;  
-    text-decoration: none;  
-    margin-left: 2rem;  
-    font-weight: 700;  
-    transition: color 0.3s;  
-}  
-  
-nav a:hover {  
-    color: #fff;  
-}  
-  
-main {  
-    margin-top: 80px;  
-    background: #000; /* Black main background */  
-}  
-  
-.hero {  
-    background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('assets/hero-bg.jpg');  
-    background-size: cover;  
-    background-position: center;  
-    height: 80vh;  
-    display: flex;  
-    flex-direction: column;  
-    justify-content: center;  
-    align-items: center;  
-    text-align: center;  
-    color: #FFD700;  
-    padding: 2rem;  
-}  
-  
-.hero h1 {  
-    font-size: 3rem;  
-    margin-bottom: 1rem;  
-    color: #FFD700;  
-}  
-  
-.cta {  
-    display: inline-block;  
-    background: #FFD700;  
-    color: #000;  
-    padding: 1rem 2rem;  
-    border-radius: 5px;  
-    text-decoration: none;  
-    font-weight: 700;  
-    margin-top: 2rem;  
-    transition: transform 0.3s;  
-}  
-  
-.cta:hover {  
-    transform: scale(1.05);  
-    background: #fff;  
-    color: #000;  
-}  
-  
-section {  
-    padding: 4rem 2rem;  
-    background: #000; /* Black section background */  
-}  
-  
-section h2 {  
-    text-align: center;  
-    color: #FFD700;  
-    margin-bottom: 2rem;  
-}  
-  
-#services ul {  
-    list-style: none;  
-    display: grid;  
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  
-    gap: 2rem;  
-    text-align: center;  
-}  
-  
-footer {  
-    background: #000;  
-    color: #FFD700;  
-    text-align: center;  
-    padding: 2rem;  
-    margin-top: 2rem;  
-}  
-  
-@media (max-width: 768px) {  
-    nav {  
-        display: none;  
-    }  
-    .hero h1 {  
-        font-size: 2rem;  
-    }  
-}  
-.beveled-gold {  
-    font-family: 'Montserrat', sans-serif;  
-    font-weight: 900;  
-    font-size: 3rem;  
-    background: linear-gradient(180deg, #fffbe6 0%, #FFD700 40%, #b8860b 100%);  
-    -webkit-background-clip: text;  
-    -webkit-text-fill-color: transparent;  
-    position: relative;  
-    text-shadow:  
-        0 2px 4px #b8860b,  
-        0 4px 8px #000,  
-        0 1px 0 #fffbe6;  
-}  
-  
-.beveled-gold::after {  
-    content: '';  
-    position: absolute;  
-    left: 0; top: 0;  
-    width: 100%; height: 50%;  
-    background: linear-gradient(90deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.1) 100%);  
-    pointer-events: none;  
-    mix-blend-mode: screen;  
-    border-radius: 0.2em;  
-}  #preloader {  
-    display: flex;  
-    flex-direction: column;  
-    align-items: center;  
-    justify-content: center;  
-    background: #000;  
-    position: fixed;  
-    width: 100vw;  
-    height: 100vh;  
-    z-index: 9999;  
 }  
   
 .loading-wheel {  
-    width: 180px;  
-    height: 180px;  
-    border: 10px solid #FFD700;  
-    border-top: 10px solid #b8860b;  
+    width: 200px; /* Increased size */  
+    height: 200px; /* Increased size */  
+    border: 8px solid #000;  
+    border-top: 8px solid #FFD700;  
     border-radius: 50%;  
-    animation: spin 1.2s linear infinite;  
-    margin-bottom: 30px;  
-    position: relative;  
-    box-shadow: 0 0 30px #FFD70088;  
-}  
-  
-@keyframes spin {  
-    0% { transform: rotate(0deg);}  
-    100% { transform: rotate(360deg);}  
+    animation: spin 1s linear infinite;  
+    margin: 0 auto;  
 }  
   
 .crown-bounce {  
     width: 80px;  
     height: 80px;  
     position: absolute;  
+    top: 50%;  
     left: 50%;  
-    top: -90px;  
-    transform: translateX(-50%);  
-    animation: bounce 1s infinite;  
+    transform: translate(-50%, -50%);  
+    animation: bounce 1s infinite ease-in-out;  
 }  
   
-@keyframes bounce {  
-    0%, 100% { transform: translateX(-50%) translateY(0);}  
-    50% { transform: translateX(-50%) translateY(-30px);}  
+/* Beveled Gold Text Effect */  
+.beveled-gold {  
+    color: #FFD700;  
+    font-weight: 700;  
+    text-shadow:   
+        1px 1px 1px #000,  
+        -1px -1px 1px #000,  
+        2px 2px 2px rgba(255, 215, 0, 0.5),  
+        -2px -2px 2px rgba(184, 134, 11, 0.5);  
+    background: linear-gradient(45deg, #FFD700, #b8860b);  
+    -webkit-background-clip: text;  
+    background-clip: text;  
+    -webkit-text-fill-color: transparent;  
+    position: relative;  
 }  
+  
+.loading-text {  
+    margin-top: 20px;  
+    font-size: 24px;  
+}  
+  
+/* Logo Corner */  
 #logo-corner {  
     position: fixed;  
     top: 20px;  
     left: 20px;  
-    z-index: 10000;  
-    width: 70px;  
-    height: 70px;  
+    z-index: 1000;  
+    width: 80px;  
+    height: 80px;  
 }  
   
 #logo-corner img {  
     width: 100%;  
     height: auto;  
-    filter: drop-shadow(0 2px 8px #FFD70088);  
+    filter: drop-shadow(0 2px 8px rgba(255, 215, 0, 0.5));  
 }  
+  
+/* Animations */  
+@keyframes spin {  
+    0% { transform: rotate(0deg); }  
+    100% { transform: rotate(360deg); }  
+}  
+  
+@keyframes bounce {  
+    0%, 100% { transform: translate(-50%, -60%); }  
+    50% { transform: translate(-50%, -40%); }  
+}  
+  
+/* Rest of your existing CSS styles... */  

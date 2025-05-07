@@ -1,172 +1,25 @@
+# Read the CSS file
+with open('midasbarbers/style.css', 'r', encoding='utf-8') as f:
+    css = f.read()
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+# Replace yellow backgrounds with black, keep gold for accents
+css = css.replace('#ffd700', '#FFD700')  # Ensure consistent gold hex
+css = css.replace('#fff', '#000')        # Replace white with black
+css = css.replace('background: #ffd700;', 'background: #000; color: #FFD700;')  # CTA button
+css = css.replace('background: #1a1a1a;', 'background: #000;')  # Headers and footer
+css = css.replace('color: #1a1a1a;', 'color: #FFD700;')         # Section headings
+css = css.replace('color: #ffd700;', 'color: #FFD700;')         # Gold text
+css = css.replace('border-top: 5px solid #ffd700;', 'border-top: 5px solid #FFD700;')
+css = css.replace('background: #ffd700;', 'background: #FFD700;')
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
-    color: #333;
-}
+# Save the updated CSS
+with open('midasbarbers/style.css', 'w', encoding='utf-8') as f:
+    f.write(css)
 
-/* Preloader styles */
-#preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #1a1a1a;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.5s;
-}
+# Show a summary of the main color lines
+import re
+color_lines = '\
+'.join([line for line in css.split('\
+') if 'color:' in line or 'background:' in line or 'border-top:' in line])
 
-.loader-container {
-    text-align: center;
-}
-
-.spinner {
-    width: 60px;
-    height: 60px;
-    border: 5px solid #333;
-    border-top: 5px solid #ffd700;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin: 0 auto 20px;
-}
-
-.percentage {
-    color: #ffd700;
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.progress-bar {
-    width: 200px;
-    height: 4px;
-    background: #333;
-    border-radius: 2px;
-    overflow: hidden;
-}
-
-.progress {
-    width: 0%;
-    height: 100%;
-    background: #ffd700;
-    transition: width 0.2s ease-out;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Main website styles */
-header {
-    background: #1a1a1a;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 100;
-}
-
-.logo {
-    height: 60px;
-}
-
-nav a {
-    color: #ffd700;
-    text-decoration: none;
-    margin-left: 2rem;
-    font-weight: 700;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #fff;
-}
-
-main {
-    margin-top: 80px;
-}
-
-.hero {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    padding: 2rem;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #ffd700;
-}
-
-.cta {
-    display: inline-block;
-    background: #ffd700;
-    color: #1a1a1a;
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 700;
-    margin-top: 2rem;
-    transition: transform 0.3s;
-}
-
-.cta:hover {
-    transform: scale(1.05);
-}
-
-section {
-    padding: 4rem 2rem;
-}
-
-section h2 {
-    text-align: center;
-    color: #1a1a1a;
-    margin-bottom: 2rem;
-}
-
-#services ul {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    text-align: center;
-}
-
-footer {
-    background: #1a1a1a;
-    color: #fff;
-    text-align: center;
-    padding: 2rem;
-    margin-top: 2rem;
-}
-
-@media (max-width: 768px) {
-    nav {
-        display: none;
-    }
-    
-    .hero h1 {
-        font-size: 2rem;
-    }
-}
+color_lines[:1000]  # Show the first 1000 characters of color-related lines for review

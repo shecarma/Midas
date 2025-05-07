@@ -239,3 +239,17 @@ footer {
     0%, 100% { transform: translateX(-50%) translateY(0);}  
     50% { transform: translateX(-50%) translateY(-30px);}  
 }  
+#logo-corner {  
+    position: fixed;  
+    top: 20px;  
+    left: 20px;  
+    z-index: 10000;  
+    width: 70px;  
+    height: 70px;  
+}  
+  
+#logo-corner img {  
+    width: 100%;  
+    height: auto;  
+    filter: drop-shadow(0 2px 8px #FFD70088);  
+}  

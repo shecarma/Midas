@@ -1,74 +1,33 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Midas Barbers</title>  
-    <link rel="stylesheet" href="style.css">  
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">  
-</head>  
-<body>  
-    <!-- Logo Corner -->  
-    <div id="logo-corner">    
-        <img src="assets/midas.png" alt="Midas Logo" />    
-    </div>    
-  
+<div id="preloader-percentage" class="beveled-gold">0%</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const percentageElement = document.getElementById("preloader-percentage");
+  const preloader = document.getElementById("preloader");
+  const loadingWheel = document.querySelector(".loading-wheel");
 
-    <div id="preloader">
-  <div class="preloader-content">
-    <img src="assets/midas.png" class="crown-bounce" alt="Crown Logo" />
-    <div class="loading-wheel"></div>
-    <div class="beveled-gold loading-text">Loading...</div>
-    <div id="preloader-percentage" class="beveled-gold">0%</div>
-  </div>
-</div>
-    </div>    
-  
-    <!-- Header -->  
-    <header>  
-        <img src="assets/midas.png" alt="Midas Barbers Logo" class="logo">  
-        <nav>  
-            <a href="#services">Services</a>  
-            <a href="#about">About</a>  
-            <a href="#contact">Contact</a>  
-        </nav>  
-    </header>  
-  
-    <!-- Main Content -->  
-    <main>  
-        <section class="hero">  
-            <h1 class="beveled-gold">Welcome to Midas Barbers</h1>  
-            <p>Where every cut is golden.</p>  
-            <a href="#contact" class="cta">Book Now</a>  
-        </section>  
-  
-        <section id="services">  
-            <h2 class="beveled-gold">Our Services</h2>  
-            <ul>  
-                <li>Haircuts</li>  
-                <li>Beard Trims</li>  
-                <li>Shaves</li>  
-                <li>Kids Cuts</li>  
-            </ul>  
-        </section>  
-  
-        <section id="about">  
-            <h2 class="beveled-gold">About Us</h2>  
-            <p>Midas Barbers is dedicated to providing top-notch grooming in a modern, friendly environment. Our experienced barbers ensure you leave looking and feeling your best.</p>  
-        </section>  
-  
-        <section id="contact">  
-            <h2 class="beveled-gold">Contact</h2>  
-            <p>Email: info@midasbarbers.com</p>  
-            <p>Phone: (555) 123-4567</p>  
-            <p>123 Golden Ave, San Francisco, CA</p>  
-        </section>  
-    </main>  
-  
-    <footer>  
-        <p>&copy; 2025 Midas Barbers. All rights reserved.</p>  
-    </footer>  
-  
-    <script src="script.js"></script>  
-</body>  
-</html>  
+  // Optional: Spin animation (if not handled via CSS)
+  if (loadingWheel) {
+    loadingWheel.style.animation = "spin 1.2s linear infinite";
+  }
+
+  const percentages = [25, 50, 75, 100];
+  let index = 0;
+
+  const interval = setInterval(() => {
+    percentageElement.textContent = percentages[index] + "%";
+    index++;
+
+    if (index >= percentages.length) {
+      clearInterval(interval);
+      // Fade out preloader after short delay
+      setTimeout(() => {
+        preloader.style.transition = "opacity 0.5s ease";
+        preloader.style.opacity = "0";
+        setTimeout(() => {
+          preloader.style.display = "none";
+        }, 500); // match transition time
+      }, 400); // small delay before fade out
+    }
+  }, 600); // time between percentage updates
+});
+</script>

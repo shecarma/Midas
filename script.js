@@ -56,3 +56,19 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 400);  
         }  
    ▍
+<script>
+  const percentageElement = document.getElementById("preloader-percentage");
+  const percentages = [25, 50, 75, 100];
+  let index = 0;
+
+  const interval = setInterval(() => {
+    if (index < percentages.length) {
+      percentageElement.textContent = percentages[index] + "%";
+      index++;
+    } else {
+      clearInterval(interval);
+      // Optionally hide the preloader after reaching 100%
+      // document.getElementById("preloader").style.display = "none";
+    }
+  }, 500); // 500ms between updates (adjust as needed)
+</script>

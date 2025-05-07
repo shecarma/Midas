@@ -26,3 +26,33 @@ document.addEventListener('DOMContentLoaded', function() {
     
     updateLoader();
 });
+// Preloader percentage animation and wheel spin  
+document.addEventListener('DOMContentLoaded', function() {  
+    var percentage = 0;  
+    var preloader = document.getElementById('preloader');  
+    var percentText = document.getElementById('preloader-percentage');  
+    var loadingWheel = document.querySelector('.loading-wheel');  
+  
+    // Animate the loading wheel (if not already animated by CSS)  
+    if (loadingWheel) {  
+        loadingWheel.style.animation = 'spin 1.2s linear infinite';  
+    }  
+  
+    // Animate the percentage  
+    var interval = setInterval(function() {  
+        percentage += 1;  
+        if (percentText) {  
+            percentText.textContent = percentage + '%';  
+        }  
+        if (percentage >= 100) {  
+            clearInterval(interval);  
+            setTimeout(function() {  
+                if (preloader) {  
+                    preloader.style.opacity = '0';  
+                    setTimeout(function() {  
+                        preloader.style.display = 'none';  
+                    }, 600);  
+                }  
+            }, 400);  
+        }  
+   ▍
